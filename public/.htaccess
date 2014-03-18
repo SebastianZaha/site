@@ -1,0 +1,6 @@
+DirectoryIndex about.html
+
+Redirect permanent /sradio http://sebi.tla.ro/sradio.html
+Redirect permanent /dreamhost http://sebi.tla.ro/dreamhost.html
+Redirect permanent /image_upload http://sebi.tla.ro/image_upload.html
+Redirect permanent /cplay_scrobbler http://sebi.tla.ro/cplay_scrobbler.html
