@@ -39,7 +39,7 @@ end
 
 def generate
   PAGES.each do |p|
-    b = File.basename(p, File.extname(p))
+    b = p.split('/').last.split('.').first
     out = "#{ROOT}/public/#{b}.html"
 
     File.open(out, 'w') do |f|
