@@ -7,6 +7,8 @@ PAGES = %w(
   site/articles_old/dreamhost.html
   site/articles_old/image_upload.html
   site/articles_old/sradio.html
+
+  travel/vienna_parking_ro.md.txt
 )
 
 ROOT   = File.dirname(__FILE__)
@@ -18,7 +20,7 @@ require 'redcarpet'
 
 def render_page(path)
   content = File.read(path)
-  if path.match(/.md$/)
+  if path.match(/.md$/) || path.match(/.md.txt$/)
     content = render_markdown(content)
   end
   content
