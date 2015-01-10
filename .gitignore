@@ -1,4 +1,7 @@
+# Ignore all generated files, but preserve directory structure.
+
 public/*.html
-public/images
-public/resources
-public/storage
+public/images/*
+!public/images/.gitkeep
+public/files/*
+!public/files/.gitkeep

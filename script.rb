@@ -11,6 +11,11 @@ PAGES = %w(
   travel/vienna_parking_ro.md.txt
 )
 
+COPY = {
+  "#{TXT}site/articles_old/images/*.*" => 'images/',
+  "#{TXT}site/articles_old/files/*.*" => 'files/'
+}
+
 ROOT   = File.dirname(__FILE__)
 HEADER = File.read(ROOT + '/header.html')
 FOOTER = File.read(ROOT + '/footer.html')
@@ -48,14 +53,16 @@ def generate
       f.puts FOOTER
     end
   end
+
+  COPY.each do |src, dest|
+    system("cp #{src} #{ROOT}/public/#{dest}")
+  end
 end
 
 def deploy
   system('rsync --archive --verbose --compress --delete public/ dh:~/sebi.tla.ro/')
 end
 
-if ARGV[0] == 'deploy'
-  deploy
-else
-  generate
-end
+generate
+deploy if ARGV[0] == 'deploy'
+
